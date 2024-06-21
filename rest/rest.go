@@ -16,6 +16,7 @@ type cardMessage struct {
 	Brand   string `json:"brand"`
 	Type    string `json:"type"`
 	Country string `json:"country"`
+	Issuer  string `json:"issuer"`
 }
 
 func Run() {
@@ -53,7 +54,9 @@ func postValidate(c *gin.Context) {
 		receivedData = cardMessage{
 			Brand:   data[records.Brand],
 			Type:    data[records.Type],
-			Country: data[records.Country]}
+			Country: data[records.Country],
+			Issuer:  data[records.Issuer],
+		}
 	} else {
 		receivedData = cardMessage{
 			Brand: fmt.Sprint(getMII(newUserData.CardNumber))}
