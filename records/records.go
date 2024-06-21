@@ -55,7 +55,7 @@ func GetRecords() ([][]string, error) {
 
 func GetBinDataFromRecord(cardNumber string, record [][]string) []string {
 	for _, r := range record {
-		if strings.Contains(cardNumber[0:7], r[Bin]) {
+		if strings.Contains(cardNumber[:7], r[Bin]) {
 			return r
 		}
 	}
